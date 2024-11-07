@@ -3,9 +3,10 @@ def main():
     text = get_book_text(book_path)
     word_count = count_words(text)
     character_count = count_characters(text)
-    print(text)
-    print(word_count)
-    print(character_count)
+    #print(text)
+    #print(word_count)
+    #print(character_count)
+    final_presentation(book_path, word_count, character_count)
 
 
 def get_book_text(path):
@@ -28,4 +29,14 @@ def count_characters(full_text):
             dict_count[char] += 1
     return dict_count
     
+def final_presentation(path, count, char):
+
+    print(f"--- Report on {path} ---")
+    print(f"With a total word count of {count}.")
+
+    sorted_keys = sorted(char)
+    for item in sorted_keys:
+        spc_cnt = char[item]
+        print(f"The character {item} appeared {spc_cnt} times.")
+    pass
 main()
