@@ -1,9 +1,17 @@
-with open("github.com/OsSiCl/bookbot/books/frankenstein.txt") as f:
-     content = f.read()
-
 def main():
-     print(content)
-     
+    book_path = "github.com/OsSiCl/bookbot/books/frankenstein.txt"
+    text = get_book_text(book_path)
+    word_count = count_words(text)
+    print(text)
+    print(word_count)
 
-if __name__ == "__main__":
-    main()
+
+def get_book_text(path):
+    with open(path) as f:
+        return f.read()
+
+def count_words(full_text):
+    words = full_text.split()
+    return len(words)
+    
+main()
